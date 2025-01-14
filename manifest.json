@@ -1,0 +1,10 @@
+{
+  "name": "ThemeHookerPlugin",
+  "version": "1.0.0",
+  "description": "A plugin to hook and customize themes for Vencord",
+  "author": "Your Name",
+  "main": "index.js",
+  "styles": ["styles.css"],
+  "permissions": [],
+  "update_url": "URL where updates can be checked"
+}
