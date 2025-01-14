@@ -41,14 +41,6 @@ html, body {
 
 .galaxy {
   background: radial-gradient(circle at center, #1a2a6c, #b21f1f, #fdbb2d, #ff9a9e);
-  background-size: 200% 200%;
-  animation: galaxyMove 20s linear infinite;
-}
-
-@keyframes galaxyMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
 }
 
 .stars {
@@ -62,7 +54,6 @@ html, body {
   width: 2px;
   height: 2px;
   border-radius: 50%;
-  animation: starTwinkle 3s infinite alternate;
 }
 
 .star:nth-child(odd) {
@@ -80,12 +71,6 @@ html, body {
 
 .star:nth-child(4n-2) {
   background: var(--star-color3);
-}
-
-@keyframes starTwinkle {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
 }
 
 @keyframes colorChange {
@@ -131,4 +116,5 @@ html, body {
   background-color: #ff7b7b;
   animation: none; /* Prevent hover from interrupting colorChange animation */
 }
+
 
