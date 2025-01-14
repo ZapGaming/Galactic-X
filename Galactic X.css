@@ -13,6 +13,9 @@
   --background-color: #000;
   --text-color: #f0f0f0;
   --highlight-color: #ff9a9e;
+  --star-color1: #ff9a9e;
+  --star-color2: #fdbb2d;
+  --star-color3: #1a2a6c;
 }
 
 html, body {
@@ -37,12 +40,12 @@ html, body {
 }
 
 .galaxy {
-  background: radial-gradient(circle, #1a2a6c, #b21f1f, #fdbb2d);
-  background-size: 600% 600%;
-  animation: galaxyBackground 30s ease infinite;
+  background: radial-gradient(circle at center, #1a2a6c, #b21f1f, #fdbb2d, #ff9a9e);
+  background-size: 200% 200%;
+  animation: galaxyMove 20s linear infinite;
 }
 
-@keyframes galaxyBackground {
+@keyframes galaxyMove {
   0% {background-position: 0% 50%;}
   50% {background-position: 100% 50%;}
   100% {background-position: 0% 50%;}
@@ -50,17 +53,16 @@ html, body {
 
 .stars {
   perspective: 1000px;
+  overflow: hidden;
 }
 
 .star {
+  position: absolute;
+  background: white;
   width: 2px;
   height: 2px;
-  background: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform-origin: 0 0 0;
-  animation: starAnimation 20s linear infinite;
+  border-radius: 50%;
+  animation: starTwinkle 3s infinite alternate;
 }
 
 .star:nth-child(odd) {
@@ -68,25 +70,22 @@ html, body {
   height: 1px;
 }
 
-@keyframes starAnimation {
-  from {transform: translateZ(0px);}
-  to {transform: translateZ(2000px);}
+.star:nth-child(4n) {
+  background: var(--star-color1);
 }
 
-@keyframes twinkle {
-  from {opacity: 0;}
-  to {opacity: 1;}
+.star:nth-child(4n-1) {
+  background: var(--star-color2);
 }
 
-.star::before {
-  content: '';
-  background: white;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  display: block;
-  opacity: 0;
-  animation: twinkle 1s infinite alternate ease-in-out;
+.star:nth-child(4n-2) {
+  background: var(--star-color3);
+}
+
+@keyframes starTwinkle {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @keyframes colorChange {
@@ -132,12 +131,4 @@ html, body {
   background-color: #ff7b7b;
   animation: none; /* Prevent hover from interrupting colorChange animation */
 }
-
-.interactive-background {
-  transform: translate(-50%, -50%);
-  transition: transform 0.05s ease-out;
-}
-
-
-
 
