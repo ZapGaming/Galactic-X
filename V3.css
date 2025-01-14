@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap');
+
+:root {
+  --background-color: #000;
+  --text-color: #f0f0f0;
+  --highlight-color: #ff9a9e;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--background-color);
+  overflow: hidden;
+  font-family: 'Georgia', serif;
+  color: var(--text-color);
+}
+
+.galaxy {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, #1a2a6c, #b21f1f, #fdbb2d);
+  animation: galaxyMove 60s linear infinite;
+  z-index: -2;
+}
+
+@keyframes galaxyMove {
+  0% {transform: translate(0, 0);}
+  50% {transform: translate(-50%, -50%);}
+  100% {transform: translate(0, 0);}
+}
+
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  perspective: 1000px;
+  animation: starsMove 40s linear infinite;
+  z-index: -1;
+}
+
+@keyframes starsMove {
+  0% {transform: translate(0, 0);}
+  50% {transform: translate(-50%, -50%);}
+  100% {transform: translate(0, 0);}
+}
+
+.star {
+  width: 2px;
+  height: 2px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0 0;
+  animation: starTwinkle 5s linear infinite;
+}
+
+.star:nth-child(odd) {
+  width: 1px;
+  height: 1px;
+}
+
+@keyframes starTwinkle {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes colorChange {
+  0% { color: #ff0000; } /* Red */
+  25% { color: #ff9a9e; } /* Pink */
+  50% { color: #fdbb2d; } /* Yellow */
+  75% { color: #1a2a6c; } /* Blue */
+  100% { color: #ff0000; } /* Red */
+}
+
+.theme-header {
+  background-color: var(--highlight-color);
+  border-bottom: 2px solid #444;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.theme-header h1 {
+  font-size: 2em;
+  animation: colorChange 5s linear infinite;
+}
+
+.theme-body {
+  background-color: var(--background-color);
+  padding: 20px;
+  animation: colorChange 5s linear infinite;
+}
+
+.theme-body p {
+  animation: colorChange 5s linear infinite;
+}
+
+.theme-button {
+  background-color: var(--highlight-color);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  animation: colorChange 5s linear infinite;
+}
+
+.theme-button:hover {
+  background-color: #ff7b7b;
+  animation: none; /* Prevent hover from interrupting colorChange animation */
+}
