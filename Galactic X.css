@@ -7,7 +7,7 @@
  * @invite vAh6SfX7s4
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap');
 
 :root {
   --background-color: #000;
@@ -22,7 +22,7 @@ html, body {
   width: 100%;
   background: var(--background-color);
   overflow: hidden;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Georgia', serif;
   color: var(--text-color);
 }
 
@@ -132,5 +132,11 @@ html, body {
   background-color: #ff7b7b;
   animation: none; /* Prevent hover from interrupting colorChange animation */
 }
+
+.interactive-background {
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease-out;
+}
+
 
 
