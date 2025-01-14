@@ -24,7 +24,6 @@ html, body {
   height: 100%;
   width: 100%;
   background: var(--background-color);
-  overflow: hidden;
   font-family: 'Georgia', serif;
   color: var(--text-color);
 }
@@ -116,5 +115,6 @@ html, body {
   background-color: #ff7b7b;
   animation: none; /* Prevent hover from interrupting colorChange animation */
 }
+
 
 
