@@ -13,3 +13,4 @@ document.addEventListener('mousemove', function (e) {
     stars.style.transform = `translate(${moveX / 2}px, ${moveY / 2}px)`;
   }
 });
+
