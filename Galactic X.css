@@ -1,0 +1,136 @@
+/**
+ * @name Galactic X
+ * @author Zap Gaming
+ * @version 1.1.0
+ * @description Galactic X Flashcord theme for Vencord/BetterDiscord.
+ * @website https://github.com/SiriusBYT/Flashcord
+ * @invite vAh6SfX7s4
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --background-color: #000;
+  --text-color: #f0f0f0;
+  --highlight-color: #ff9a9e;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--background-color);
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+}
+
+.galaxy, .stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.galaxy {
+  background: radial-gradient(circle, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 600% 600%;
+  animation: galaxyBackground 30s ease infinite;
+}
+
+@keyframes galaxyBackground {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.stars {
+  perspective: 1000px;
+}
+
+.star {
+  width: 2px;
+  height: 2px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0 0;
+  animation: starAnimation 20s linear infinite;
+}
+
+.star:nth-child(odd) {
+  width: 1px;
+  height: 1px;
+}
+
+@keyframes starAnimation {
+  from {transform: translateZ(0px);}
+  to {transform: translateZ(2000px);}
+}
+
+@keyframes twinkle {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.star::before {
+  content: '';
+  background: white;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  display: block;
+  opacity: 0;
+  animation: twinkle 1s infinite alternate ease-in-out;
+}
+
+@keyframes colorChange {
+  0% { color: #ff0000; } /* Red */
+  25% { color: #ff9a9e; } /* Pink */
+  50% { color: #fdbb2d; } /* Yellow */
+  75% { color: #1a2a6c; } /* Blue */
+  100% { color: #ff0000; } /* Red */
+}
+
+.theme-header {
+  background-color: var(--highlight-color);
+  border-bottom: 2px solid #444;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.theme-header h1 {
+  font-size: 2em;
+  animation: colorChange 5s linear infinite;
+}
+
+.theme-body {
+  background-color: var(--background-color);
+  padding: 20px;
+  animation: colorChange 5s linear infinite;
+}
+
+.theme-body p {
+  animation: colorChange 5s linear infinite;
+}
+
+.theme-button {
+  background-color: var(--highlight-color);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  animation: colorChange 5s linear infinite;
+}
+
+.theme-button:hover {
+  background-color: #ff7b7b;
+  animation: none; /* Prevent hover from interrupting colorChange animation */
+}
+
+
